@@ -8,11 +8,10 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-
-
 import Grid from '@material-ui/core/Grid';
 
 import MediaCard from './Cards/MediaCard.js';
+import HorizScroll from './HorizScroll.js';
 
 
 
@@ -47,34 +46,7 @@ function Results(props) {
       <Typography gutterBottom variant="h4" component="h2">
         PDFs on <mark><b>React</b></mark>
       </Typography>
-      <Grid
-        container
-      direction="row"
-      justify="space-evenly"
-      alignItems="center"
-      > 
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-    
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-        
-    </Grid>
-    
+      <HorizScroll />
 
       <Typography component="p">
         
@@ -95,33 +67,7 @@ function Results(props) {
           <Typography gutterBottom variant="h4" component="h2">
             videos explaining <mark><b>React</b></mark>
           </Typography>
-          <Grid
-            container
-            direction="row"
-            justify="space-evenly"
-            alignItems="center"
-            > 
-            <Grid item xs> 
-           <MediaCard/>
-    </Grid>
-
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-    
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-        
-    </Grid>
+          <HorizScroll />
         </CardContent>
       </CardActionArea>
     </Card>
@@ -137,33 +83,7 @@ function Results(props) {
           <Typography gutterBottom variant="h4" component="h2">
             websites about <mark><b>React</b></mark>
           </Typography>
-          <Grid
-        container
-      direction="row"
-      justify="space-evenly"
-      alignItems="center"
-      > 
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-    
-    <Grid item xs> 
-    <MediaCard/>
-    </Grid>
-        
-    </Grid>
+          <HorizScroll />
         </CardContent>
       </CardActionArea>
     </Card>
