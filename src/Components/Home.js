@@ -102,9 +102,8 @@ class Home extends React.Component {
               placeholder="What are you curious about?"
               className={classes.textField}
               value={this.state.search}
-              onChange={this.handleChange('search')}
-              
-              // onSubmit={this.handleSubmit('search')}
+              // onChange={this.handleChange('search')}
+              onSubmit={this.handleSubmit('search')}
               margin="normal"
             />
           </FormControl>  
