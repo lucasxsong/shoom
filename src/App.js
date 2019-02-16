@@ -5,6 +5,9 @@ import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import shumai from './shumai.png';
+
+import SimpleCard from './SimpleCard.js';
 
 const styles = theme => ({
   container: {
@@ -14,15 +17,18 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 400,
+    width: 550,
   },
   dense: {
-    marginTop: 19,
+    marginTop: 20,
   },
   menu: {
     width: 400,
   },
 });
+
+
+
 
 
 class TextFields extends React.Component {
@@ -31,16 +37,36 @@ class TextFields extends React.Component {
 
     return (
       <form className={classes.container} noValidate autoComplete="off">
+        
         <Grid
           container
           spacing={0}
           direction="column"
           alignItems="center"
           justify="center"
-          style={{ minHeight: '120vh' }}
-        >
+          style={{ minHeight: '10vh' , minWidth: "10vh"}}
+        > 
+        <br/>
+        <img src={shumai}  width={100} marginTop={50} mode='fit'/>
+        <h2> shumai </h2>
 
-        <Grid item xs={3}>
+        </Grid>
+         <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justify="center"
+          
+          style={{ minHeight: '40vh' }}
+        > 
+        
+
+        <Grid item xs ={6}>
+        <SimpleCard />  
+        </Grid>
+
+        <Grid item xs={6}>
           <TextField
             id="standard-textarea"
             label="Enter an equation, word problem, or just a concept you want to learn about!"
