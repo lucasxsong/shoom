@@ -3,27 +3,52 @@ import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './HorizScroll.css';
 import { withStyles } from '@material-ui/core';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
-
-import MediaCard from './Cards/MediaCard.js';
+import RenderCard from './Cards/RenderCard.js'
  
 // list of items
+//json pkg
 const list = [
-  { name: 'item1' },
-  { name: 'item2' },
-  { name: 'item3' },
-  { name: 'item4' },
-  { name: 'item5' },
-  { name: 'item6' },
-  { name: 'item7' },
-  { name: 'item8' },
-  { name: 'item9' }
+  { title: 'react js video post',
+  type: 'video',
+   snippet: 'quick tips on getting started with react js, ez tutorial',
+   preview: 'https://learn.g2crowd.com/hs-fs/hubfs/Pillar%20Pages/screenshots/mac%20screenshots/name-screenshot-on-mac-preview.png?width=2564&name=name-screenshot-on-mac-preview.png',
+  link: 'reactjs.org',  
+  cacheID: '89nbig8'},
+
+  { title: 'react js forum post',
+  type: 'forum',
+   snippet: 'quick tips on getting started with react js, ez tutorial',
+   preview: 'https://learn.g2crowd.com/hs-fs/hubfs/Pillar%20Pages/screenshots/mac%20screenshots/name-screenshot-on-mac-preview.png?width=2564&name=name-screenshot-on-mac-preview.png',
+  link: 'reactjs.org',  
+  cacheID: '89nbig8'},
+  
+  { title: 'react js video',
+  type: 'video',
+  snippet: 'quick tips on getting started with react js, ez tutorial',
+  preview: 'https://learn.g2crowd.com/hs-fs/hubfs/Pillar%20Pages/screenshots/mac%20screenshots/name-screenshot-on-mac-preview.png?width=2564&name=name-screenshot-on-mac-preview.png',
+ link: 'reactjs.org',  
+ cacheID: '89nbig8'},
+  
+ { title: 'react js forum post',
+ type: 'forum',
+ snippet: 'quick tips on getting started with react js, ez tutorial',
+ preview: 'https://learn.g2crowd.com/hs-fs/hubfs/Pillar%20Pages/screenshots/mac%20screenshots/name-screenshot-on-mac-preview.png?width=2564&name=name-screenshot-on-mac-preview.png',
+link: 'reactjs.org',  
+cacheID: '89nbig8'},
+ 
+{ title: 'react js documentation',
+type: 'doc',
+snippet: 'quick tips on getting started with react js, ez tutorial',
+preview: 'https://learn.g2crowd.com/hs-fs/hubfs/Pillar%20Pages/screenshots/mac%20screenshots/name-screenshot-on-mac-preview.png?width=2564&name=name-screenshot-on-mac-preview.png',
+link: 'reactjs.org',  
+cacheID: '89nbig8'},
 ];
  
 // One item component
 // selected prop will be passed
 const MenuItem = ({ text, selected }) => {
   return (
-    <MediaCard/>
+    <RenderCard/>
   );
 };
  
@@ -31,7 +56,7 @@ const MenuItem = ({ text, selected }) => {
 // Important! add unique key
 export const Menu = (list) => list.map(el => {
   const { name } = el;
- 
+  if ()
   return (
     <MenuItem
       text={name}

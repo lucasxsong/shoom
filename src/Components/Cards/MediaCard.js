@@ -14,10 +14,13 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 const styles = {
   card: {
-    maxWidth: 300,
+    maxWidth: 250,
+    margin: 10,
+    whiteSpace: 'pre-wrap',
+    size: 5,
   },
   media: {
-    height: 100,
+    height: 120,
   },
 };
 
@@ -28,15 +31,15 @@ function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="./Components/reactjs.jpg"
-          title="Contemplative Reptile"
+          image={classes.preview}
+          title={classes.title}
         />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            Videos
+          <Typography gutterBottom variant="h6" component="h6">
+            {classes.title}
           </Typography>
           <Typography component="p">
-            React js a powerful framework for developing web apps.
+            {classes.desc}
           </Typography>
         </CardContent>
       </CardActionArea>
