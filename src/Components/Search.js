@@ -28,7 +28,7 @@ class Search extends React.Component {
           const youtube = [];
 
           result.items.forEach(item => {
-            if(item.displayLink === 'www.youtube.com') {
+            if(item.title.includes('React')) {
               youtube.push(item);
             }
           })
@@ -45,13 +45,13 @@ class Search extends React.Component {
         }
       )
     
-    {/*const { error, isLoaded, items } = this.state;*/}
+    {/*const { error, isLoaded, items } = this.state;
     const youtube = [];
 
     console.table(this.state.items);
 
     this.state.items.forEach(item => {
-      if (item.displayLink === 'www.youtube.com') {
+      if ('youtube' in item.displayLink === true) {
         youtube.push(item);
       }
       else {
@@ -59,6 +59,7 @@ class Search extends React.Component {
       }
     })
     this.setState({youtube})
+  */}
   }
 
   render() {
