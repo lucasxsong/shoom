@@ -6,6 +6,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import shumai from './shumai.png';
+import Search from './Search.js';
 
 
 
@@ -34,50 +35,54 @@ class Home extends React.Component {
     const { classes } = this.props;
 
     return (
-      <form className={classes.container} noValidate autoComplete="off">
-        
-        <Grid
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justify="center"
-          style={{ minHeight: '10vh' , minWidth: "10vh"}}
-        > 
-        <br/>
-        <img src={shumai}  width={100} marginTop={50} mode='fit'/>
-        <h2> shumai </h2>
-
-        </Grid>
-         <Grid
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justify="center"
+      <div>
+        <form className={classes.container} noValidate autoComplete="off">
           
-          style={{ minHeight: '40vh' }}
-        > 
+          <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
+            style={{ minHeight: '10vh' , minWidth: "10vh"}}
+          > 
+          <br/>
+          <img src={shumai}  width={100} marginTop={50} mode='fit'/>
+          <h2> shumai </h2>
 
-        <Grid item xs ={6}>
-        <SimpleCard />  
-        </Grid>
-
-        <Grid item xs={6}>
-          <TextField
-            id="standard-textarea"
-            label="Enter an equation, word problem, or just a concept you want to learn about!"
-            placeholder="Placeholder"
-            multiline
-            className={classes.textField}
-            margin="normal"
-          />  
-        </Grid>   
-
-        </Grid> 
+          </Grid>
+           <Grid
+            container
+            spacing={0}
+            direction="column"
+            alignItems="center"
+            justify="center"
             
-          
-      </form>
+            style={{ minHeight: '40vh' }}
+          > 
+
+          <Grid item xs ={6}>
+          <SimpleCard />  
+          </Grid>
+
+          <Grid item xs={6}>
+            <TextField
+              id="standard-textarea"
+              label="Enter an equation, word problem, or just a concept you want to learn about!"
+              placeholder="Placeholder"
+              multiline
+              className={classes.textField}
+              margin="normal"
+            />  
+          </Grid>   
+
+          </Grid> 
+              
+            
+        </form>
+
+        <Search />
+      </div>
     );
   }
 }
