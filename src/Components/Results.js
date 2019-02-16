@@ -43,7 +43,7 @@ function Results(props) {
         We found some
       </Typography>
       <Typography gutterBottom variant="h4" component="h2">
-        PDFs on <b>React</b> 
+        PDFs on <mark><b>React</b></mark>
       </Typography>
       <Typography component="p">
         <ul> 
@@ -83,10 +83,10 @@ function Results(props) {
       <CardActionArea>
         <CardContent>
             <Typography gutterBottom variant="h6" component="h7">
-            and also
+            and some
           </Typography>
           <Typography gutterBottom variant="h4" component="h2">
-            videos explaning <b>React</b>
+            videos explaining <mark><b>React</b></mark>
           </Typography>
           <Typography component="p">
             
@@ -119,7 +119,7 @@ function Results(props) {
             and also some
           </Typography>
           <Typography gutterBottom variant="h4" component="h2">
-            websites talking about <b>React</b>
+            websites about <mark><b>React</b></mark>
           </Typography>
           <Typography component="p">
             
