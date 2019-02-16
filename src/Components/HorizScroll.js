@@ -3,76 +3,51 @@ import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './HorizScroll.css';
 import { withStyles } from '@material-ui/core';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
-import MediaCard from './Cards/RenderCard.js';
+
 import WebsiteCard from './Cards/WebsiteCard.js';
+import MediaCard from './Cards/MediaCard.js';
  
 // list of items
-//json pkg
 const list = [
-  { title: 'react js video post',
-  type: 'video',
+  { name: 'item1',
+    title: 'react js tutorials',
    snippet: 'quick tips on getting started with react js, ez tutorial',
-   preview: 'https://learn.g2crowd.com/hs-fs/hubfs/Pillar%20Pages/screenshots/mac%20screenshots/name-screenshot-on-mac-preview.png?width=2564&name=name-screenshot-on-mac-preview.png',
-  link: 'reactjs.org',  
-  cacheID: '89nbig8'},
-
-  { title: 'react js forum post',
-  type: 'forum',
-   snippet: 'quick tips on getting started with react js, ez tutorial',
-   preview: 'https://learn.g2crowd.com/hs-fs/hubfs/Pillar%20Pages/screenshots/mac%20screenshots/name-screenshot-on-mac-preview.png?width=2564&name=name-screenshot-on-mac-preview.png',
-  link: 'reactjs.org',  
-  cacheID: '89nbig8'},
-  
-  { title: 'react js video',
-  type: 'video',
-  snippet: 'quick tips on getting started with react js, ez tutorial',
-  preview: 'https://learn.g2crowd.com/hs-fs/hubfs/Pillar%20Pages/screenshots/mac%20screenshots/name-screenshot-on-mac-preview.png?width=2564&name=name-screenshot-on-mac-preview.png',
- link: 'reactjs.org',  
- cacheID: '89nbig8'},
-  
- { title: 'react js forum post',
- type: 'forum',
- snippet: 'quick tips on getting started with react js, ez tutorial',
- preview: 'https://learn.g2crowd.com/hs-fs/hubfs/Pillar%20Pages/screenshots/mac%20screenshots/name-screenshot-on-mac-preview.png?width=2564&name=name-screenshot-on-mac-preview.png',
-link: 'reactjs.org',  
-cacheID: '89nbig8'},
- 
-{ title: 'react js documentation',
-type: 'doc',
-snippet: 'quick tips on getting started with react js, ez tutorial',
-preview: 'https://learn.g2crowd.com/hs-fs/hubfs/Pillar%20Pages/screenshots/mac%20screenshots/name-screenshot-on-mac-preview.png?width=2564&name=name-screenshot-on-mac-preview.png',
-link: 'reactjs.org',  
-cacheID: '89nbig8'},
+   preview: 'goo'},
+  { name: 'item2' },
+  { name: 'item3' },
+  { name: 'item4' },
+  { name: 'item5' },
+  { name: 'item6' },
+  { name: 'item7' },
+  { name: 'item8' },
+  { name: 'item9' },
 ];
  
-// goes through list of json and makes media/website cards
+// One item component
+// selected prop will be passed
+const MenuItem = ({ text, selected }) => {
+  return (
+    <WebsiteCard
+      media = {MenuItem.title}
+      title = {MenuItem.title}
+      desc = {MenuItem.snippet}
+    />
+  );
+};
+ 
+// All items component
 // Important! add unique key
 export const Menu = (list) => list.map(el => {
   const { name } = el;
-  list.forEach(item => {
-    if (item.type === 'media') {
-      return (
-        <MediaCard
-          media = {item.title} 
-          preview  = {item.preview}
-          title = {item.title}
-          desc = {item.snippet}
-        />
-      );
-    }
-
-    else if (item.type === 'website') {
-      return (
-        <WebsiteCard
-          media = {item.title} 
-          preview  = {item.preview}
-          title = {item.title}
-          desc = {item.snippet}
-        />
-      );
-    }
-  })
-  
+ 
+  return (
+    <MenuItem
+      text={name}
+      key={name}
+      title = {list.title}
+      snippet = {list.snippet}
+    />
+  );
 });
  
  
