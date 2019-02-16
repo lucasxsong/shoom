@@ -13,12 +13,20 @@ import Grid from '@material-ui/core/Grid';
 import MediaCard from './Cards/MediaCard.js';
 import HorizScroll from './HorizScroll.js';
 
+import './Results.css';
 
+import { createMuiTheme } from '@material-ui/core/styles';
+import purple from '@material-ui/core/colors/purple';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: purple,
+  },
+});
 
 const styles = {
   card: {
-    height: 450,
-
+    
   },
   media: {
     height: 150,
@@ -28,6 +36,7 @@ const styles = {
 function Results(props) {
   const { classes } = props;
   return (
+  <div class = "resultBody"> 
   <Grid
     container
     direction="column"
@@ -43,16 +52,17 @@ function Results(props) {
         <Typography gutterBottom variant="h6" component="h7">
         We found some
       </Typography>
-      <Typography gutterBottom variant="h4" component="h2">
-        PDFs on <mark><b>React</b></mark>
+      <Typography gutterBottom variant="h5" component="h3">
+        forums buzzing about <mark><b>React</b></mark>
       </Typography>
+      </CardContent>
+      </CardActionArea>
       <HorizScroll />
 
       <Typography component="p">
         
       </Typography>
-    </CardContent>
-  </CardActionArea>
+    
 </Card>
 </Grid>
 
@@ -64,12 +74,13 @@ function Results(props) {
             <Typography gutterBottom variant="h6" component="h7">
             and some
           </Typography>
-          <Typography gutterBottom variant="h4" component="h2">
-            videos explaining <mark><b>React</b></mark>
+          <Typography gutterBottom variant="h5" component="h3">
+            videos explaining <mark><b> React </b></mark>
           </Typography>
+          </CardContent>
+          </CardActionArea>
           <HorizScroll />
-        </CardContent>
-      </CardActionArea>
+        
     </Card>
     </Grid>
     <Grid item xs>
@@ -80,15 +91,17 @@ function Results(props) {
             <Typography gutterBottom variant="h6" component="h7">
             and also some
           </Typography>
-          <Typography gutterBottom variant="h4" component="h2">
-            websites about <mark><b>React</b></mark>
+          <Typography gutterBottom variant="h5" component="h3">
+            documentation on <mark><b> React </b></mark>
           </Typography>
+          </CardContent>
+        </CardActionArea>
           <HorizScroll />
-        </CardContent>
-      </CardActionArea>
+        
     </Card>
     </Grid>
     </Grid>
+    </div>
   );
 }
 
