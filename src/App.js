@@ -1,28 +1,66 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import PropTypes from 'prop-types';
+import classNames from 'classnames';
+import { withStyles } from '@material-ui/core/styles';
+import MenuItem from '@material-ui/core/MenuItem';
+import TextField from '@material-ui/core/TextField';
+import Grid from '@material-ui/core/Grid';
 
-class App extends Component {
+const styles = theme => ({
+  container: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  textField: {
+    marginLeft: theme.spacing.unit,
+    marginRight: theme.spacing.unit,
+    width: 400,
+  },
+  dense: {
+    marginTop: 19,
+  },
+  menu: {
+    width: 400,
+  },
+});
+
+
+class TextFields extends React.Component {
   render() {
+    const { classes } = this.props;
+
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <form className={classes.container} noValidate autoComplete="off">
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justify="center"
+          style={{ minHeight: '120vh' }}
+        >
+
+        <Grid item xs={3}>
+          <TextField
+            id="standard-textarea"
+            label="Enter an equation, word problem, or just a concept you want to learn about!"
+            placeholder="Placeholder"
+            multiline
+            className={classes.textField}
+            margin="normal"
+          />  
+        </Grid>   
+
+        </Grid> 
+            
+          
+      </form>
     );
   }
 }
 
-export default App;
+TextFields.propTypes = {
+  classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(TextFields);
