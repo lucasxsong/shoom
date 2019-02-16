@@ -28,7 +28,58 @@ const styles = theme => ({
 });
 
 
+class SearchAPI extends React.Component {
+   constructor(props) {
+    super(props);
+    this.state = {
+      error: null,
+      isLoaded: false,
+      items: []
+    };
+  }
 
+  componentDidMount() {
+    fetch("https://www.googleapis.com/customsearch/v1?q=react&cx=009814564409014083669%3Ap0abuzhzwbs&key=AIzaSyBPimiYMdLwWK6XBSjbSer-alj76YukPwU")
+      .then(res => res.json())
+      .then(
+        (result) => {
+          this.setState({
+            isLoaded: true,
+            items: result.items
+          });
+        },
+        // Note: it's important to handle errors here
+        // instead of a catch() block so that we don't swallow
+        // exceptions from actual bugs in components.
+        (error) => {
+          this.setState({
+            isLoaded: true,
+            error
+          });
+        }
+      )
+  }
+
+  render() {
+    const { error, isLoaded, items } = this.state;
+    if (error) {
+      return <div>Error: {error.message}</div>;
+    } else if (!isLoaded) {
+      return <div>Loading...</div>;
+    } else {
+      return (
+        <ul>
+          {items.map(item => (
+            <li key={item.title}>
+              {item.title} {item.link}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  }
+
+}
 
 
 class TextFields extends React.Component {
@@ -36,6 +87,7 @@ class TextFields extends React.Component {
     const { classes } = this.props;
 
     return (
+    <div>
       <form className={classes.container} noValidate autoComplete="off">
         
         <Grid
@@ -81,6 +133,22 @@ class TextFields extends React.Component {
             
           
       </form>
+
+      <SearchAPI />
+
+        
+
+{/*
+      <form method = "get" title = "Search Form" action="https://cse.google.com/cse/publicurl">
+        <div>
+          <input type="text" id="q" name="q" title="Search this site" alt="Search Text" maxlength="256" />
+          <input type="hidden" id="cx" name="cx" value="009814564409014083669:p0abuzhzwbs" />
+          <input type="image" id="searchSubmit" name="submit" src="https://www.flaticon.com/free-icon/active-search-symbol_34148" alt="Go" title="Submit Search Query" />
+        </div>
+      </form> 
+*/}
+      
+      </div>
     );
   }
 }
