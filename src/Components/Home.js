@@ -1,15 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Icon from '@material-ui/core/Icon';
 import classNames from 'classnames';
 import { withStyles } from '@material-ui/core/styles';
 import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
+import Paper from '@material-ui/core/Paper';
+import Input from '@material-ui/core/Input';
+import IconButton from '@material-ui/core/IconButton';
+// import SearchIcon from '@material-ui/icons/Search';
 import shumai from './shumai.png';
 
 
 
 import SimpleCard from './SimpleCard.js';
+import { FormControl } from '@material-ui/core';
 
 const styles = theme => ({
   container: {
@@ -30,6 +36,31 @@ const styles = theme => ({
 });
 
 class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      search: ''
+    };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChange = name => event => {
+    this.setState({
+      [name]: event.target.value
+    });
+    // console.log(this.state.search);
+  };
+
+  handleSubmit = name => event => {
+    this.setState({
+      [name]: event.target.value
+    });
+    console.log(this.state.search);
+  };
+
   render() {
     const { classes } = this.props;
 
@@ -64,14 +95,19 @@ class Home extends React.Component {
         </Grid>
 
         <Grid item xs={6}>
-          <TextField
-            id="standard-textarea"
-            label="Enter an equation, word problem, or just a concept you want to learn about!"
-            placeholder="Placeholder"
-            multiline
-            className={classes.textField}
-            margin="normal"
-          />  
+          <FormControl>
+            <TextField
+              id="search-bar"
+              label="Enter an equation, word problem, or just a concept you want to learn about!"
+              placeholder="What are you curious about?"
+              className={classes.textField}
+              value={this.state.search}
+              onChange={this.handleChange('search')}
+              
+              // onSubmit={this.handleSubmit('search')}
+              margin="normal"
+            />
+          </FormControl>  
         </Grid>   
 
         </Grid> 
