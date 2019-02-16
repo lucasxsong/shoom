@@ -20,7 +20,7 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 550,
+    width: 420,
   },
   dense: {
     marginTop: 20,
@@ -35,29 +35,27 @@ class Home extends React.Component {
     const { classes } = this.props;
 
     return (
-      <div>
-        <form className={classes.container} noValidate autoComplete="off">
-          
-          <Grid
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justify="center"
-            style={{ minHeight: '10vh' , minWidth: "10vh"}}
-          > 
-          <br/>
-          <img src={shumai}  width={100} marginTop={50} mode='fit'/>
-          <h2> shumai </h2>
+      <form className={classes.container} noValidate autoComplete="off">
+        
+        <Grid
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justify="center"
+          style={{ minHeight: '10vh' , minWidth: "10vh"}}
+        > 
+        <br/> <br />
+        <img src={shumai}  width={100} marginTop={50} mode='fit'/>
+        <h2> shumai </h2>
 
-          </Grid>
-           <Grid
+        </Grid>
+         <Grid
             container
             spacing={0}
             direction="column"
             alignItems="center"
             justify="center"
-            
             style={{ minHeight: '40vh' }}
           > 
 
@@ -65,16 +63,16 @@ class Home extends React.Component {
           <SimpleCard />  
           </Grid>
 
-          <Grid item xs={6}>
-            <TextField
-              id="standard-textarea"
-              label="Enter an equation, word problem, or just a concept you want to learn about!"
-              placeholder="Placeholder"
-              multiline
-              className={classes.textField}
-              margin="normal"
-            />  
-          </Grid>   
+        <Grid item xs={6}>
+          <TextField
+            id="standard-textarea"
+            label="Enter a framework or technology you want to learn about."
+            placeholder="What will it be?"
+            multiline
+            className={classes.textField}
+            margin="normal"
+          />  
+        </Grid>   
 
           </Grid> 
               

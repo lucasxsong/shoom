@@ -28,7 +28,7 @@ function MediaCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image="./reactjs.jpg"
+          image="./Components/reactjs.jpg"
           title="Contemplative Reptile"
         />
         <CardContent>
