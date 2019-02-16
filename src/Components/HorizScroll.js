@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './HorizScroll.css';
 import { withStyles } from '@material-ui/core';
+import MaterialIcon, {colorPalette} from 'material-icons-react';
 
 import MediaCard from './Cards/MediaCard.js';
  

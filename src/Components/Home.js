@@ -19,7 +19,7 @@ const styles = theme => ({
   textField: {
     marginLeft: theme.spacing.unit,
     marginRight: theme.spacing.unit,
-    width: 550,
+    width: 420,
   },
   dense: {
     marginTop: 20,
@@ -44,7 +44,7 @@ class Home extends React.Component {
           justify="center"
           style={{ minHeight: '10vh' , minWidth: "10vh"}}
         > 
-        <br/>
+        <br/> <br />
         <img src={shumai}  width={100} marginTop={50} mode='fit'/>
         <h2> shumai </h2>
 
@@ -66,8 +66,8 @@ class Home extends React.Component {
         <Grid item xs={6}>
           <TextField
             id="standard-textarea"
-            label="Enter an equation, word problem, or just a concept you want to learn about!"
-            placeholder="Placeholder"
+            label="Enter a framework or technology you want to learn about."
+            placeholder="What will it be?"
             multiline
             className={classes.textField}
             margin="normal"
