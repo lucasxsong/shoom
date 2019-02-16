@@ -12,11 +12,13 @@ import Typography from '@material-ui/core/Typography';
 
 import Grid from '@material-ui/core/Grid';
 
+import MediaCard from './Cards/MediaCard.js';
+
 
 
 const styles = {
   card: {
-    height: 800,
+    height: 450,
 
   },
   media: {
@@ -27,11 +29,11 @@ const styles = {
 function Results(props) {
   const { classes } = props;
   return (
-    <Grid
+  <Grid
     container
-    direction="row"
-    justify="space-evenly"
-    alignItems="center"
+    direction="column"
+    justify="flex-start"
+    alignItems="stretch"
   >
 
 <Grid item xs>
@@ -45,35 +47,40 @@ function Results(props) {
       <Typography gutterBottom variant="h4" component="h2">
         PDFs on <mark><b>React</b></mark>
       </Typography>
+      <Grid
+        container
+      direction="row"
+      justify="space-evenly"
+      alignItems="center"
+      > 
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
+
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
+
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
+
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
+    
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
+        
+    </Grid>
+    
+
       <Typography component="p">
-        <ul> 
-            <li>
-                link one
-            </li>
-            <li>
-                link two 
-            </li>
-            <li>
-                link three
-            </li>
-            <li>
-                link four
-            </li>
-            <li>
-                link five
-            </li>
-        </ul>
+        
       </Typography>
     </CardContent>
   </CardActionArea>
-  <CardActions>
-    <Button size="small" color="primary">
-      Keep
-    </Button>
-    <Button size="small" color="primary">
-      Read more
-    </Button>
-  </CardActions>
 </Card>
 </Grid>
 
@@ -88,26 +95,35 @@ function Results(props) {
           <Typography gutterBottom variant="h4" component="h2">
             videos explaining <mark><b>React</b></mark>
           </Typography>
-          <Typography component="p">
-            
-<iframe width="250" src="https://www.youtube.com/embed/Ke90Tje7VS0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <Grid
+            container
+            direction="row"
+            justify="space-evenly"
+            alignItems="center"
+            > 
+            <Grid item xs> 
+           <MediaCard/>
+    </Grid>
 
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
 
-<iframe width="250"  src="https://www.youtube.com/embed/DLX62G4lc44" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
 
-<iframe width="250" src="https://www.youtube.com/embed/jL_ILGuz2aw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-          </Typography>
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
+    
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
+        
+    </Grid>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Keep 
-        </Button>
-        <Button size="small" color="primary">
-          Read More
-        </Button>
-      </CardActions>
     </Card>
     </Grid>
     <Grid item xs>
@@ -121,26 +137,35 @@ function Results(props) {
           <Typography gutterBottom variant="h4" component="h2">
             websites about <mark><b>React</b></mark>
           </Typography>
-          <Typography component="p">
-            
-<iframe width="250" src="https://www.youtube.com/embed/Ke90Tje7VS0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <Grid
+        container
+      direction="row"
+      justify="space-evenly"
+      alignItems="center"
+      > 
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
 
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
 
-<iframe width="250"  src="https://www.youtube.com/embed/DLX62G4lc44" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
 
-<iframe width="250" src="https://www.youtube.com/embed/jL_ILGuz2aw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-          </Typography>
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
+    
+    <Grid item xs> 
+    <MediaCard/>
+    </Grid>
+        
+    </Grid>
         </CardContent>
       </CardActionArea>
-      <CardActions>
-        <Button size="small" color="primary">
-          Keep 
-        </Button>
-        <Button size="small" color="primary">
-          Read More
-        </Button>
-      </CardActions>
     </Card>
     </Grid>
     </Grid>
