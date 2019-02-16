@@ -3,7 +3,8 @@ import ScrollMenu from 'react-horizontal-scrolling-menu';
 import './HorizScroll.css';
 import { withStyles } from '@material-ui/core';
 import MaterialIcon, {colorPalette} from 'material-icons-react';
-import RenderCard from './Cards/RenderCard.js'
+import MediaCard from './Cards/RenderCard.js';
+import WebsiteCard from './Cards/WebsiteCard.js';
  
 // list of items
 //json pkg
@@ -44,25 +45,34 @@ link: 'reactjs.org',
 cacheID: '89nbig8'},
 ];
  
-// One item component
-// selected prop will be passed
-const MenuItem = ({ text, selected }) => {
-  return (
-    <RenderCard/>
-  );
-};
- 
-// All items component
+// goes through list of json and makes media/website cards
 // Important! add unique key
 export const Menu = (list) => list.map(el => {
   const { name } = el;
-  if ()
-  return (
-    <MenuItem
-      text={name}
-      key={name}
-    />
-  );
+  list.forEach(item => {
+    if (item.type === 'media') {
+      return (
+        <MediaCard
+          media = {item.title} 
+          preview  = {item.preview}
+          title = {item.title}
+          desc = {item.snippet}
+        />
+      );
+    }
+
+    else if (item.type === 'website') {
+      return (
+        <WebsiteCard
+          media = {item.title} 
+          preview  = {item.preview}
+          title = {item.title}
+          desc = {item.snippet}
+        />
+      );
+    }
+  })
+  
 });
  
  
