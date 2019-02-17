@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -15,14 +15,9 @@ import HorizScroll from './HorizScroll.js';
 
 import './Results.css';
 
-import { createMuiTheme } from '@material-ui/core/styles';
-import purple from '@material-ui/core/colors/purple';
+// sort by type, sorting from data set unsorted 
 
-const theme = createMuiTheme({
-  palette: {
-    primary: purple,
-  },
-});
+
 
 const styles = {
   card: {
@@ -32,8 +27,10 @@ const styles = {
     height: 150,
   },
 };
+// idea (?)
 // can change xs values to dictate weighted categories
 function Results(props) {
+  
   const { classes } = props;
   return (
   <div class = "resultBody"> 
@@ -57,6 +54,7 @@ function Results(props) {
       </Typography>
       </CardContent>
       </CardActionArea>
+    
       <HorizScroll />
 
       <Typography component="p">
