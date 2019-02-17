@@ -59,15 +59,26 @@ class Home extends React.Component {
   render() {
     const { classes } = this.props;
 
-    return (
-      <div id="search-bar-display">
-        <SearchBar
-          onChange={this.handleChange}
-          onSubmit={this.handleSubmit}
-          classes={{ classes }}
-        />
-      </div>
-    );
+    if(this.state.hasSearched === false) {
+      //Render the search-bar page
+      return (
+        <div id="search-bar-display">
+          <SearchBar
+            onChange={this.handleChange}
+            onSubmit={this.handleSubmit}
+            classes={{ classes }}
+          />
+        </div>  
+      );
+    }
+    else {
+      //Render the search API and results page
+      return (
+        <div id="test">
+          <h1>Hello World!</h1>
+        </div>
+      );  
+    }
   }
 }
 
