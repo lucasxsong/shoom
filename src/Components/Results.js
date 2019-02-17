@@ -191,6 +191,7 @@ class Results extends React.Component {
 
       //console.table(this.searchResults.articles);
 
+      
     return (
       <div class="resultBody">
         <Grid
