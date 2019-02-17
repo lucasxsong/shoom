@@ -15,8 +15,13 @@ import SearchBar from "./SearchBar.js";
 
 const styles = theme => ({
   container: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(12, 1fr)',
+    gridGap: `${theme.spacing.unit * 3}px`,
+  },
+  box: {
     display: "flex",
-    flexWrap: "wrap"
+    flexWrap: "wrap",
   },
   textField: {
     marginLeft: theme.spacing.unit,
@@ -28,6 +33,9 @@ const styles = theme => ({
   },
   menu: {
     width: 400
+  },
+  footer: {
+    background: "#515052" 
   }
 });
 

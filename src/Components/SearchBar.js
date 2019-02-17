@@ -23,7 +23,7 @@ class SearchBar extends React.Component {
           rel="stylesheet"
         />
         <form
-          className={classes.container}
+          className={classes.box}
           noValidate
           autoComplete="off"
           onSubmit={this.props.onSubmit}
@@ -37,56 +37,54 @@ class SearchBar extends React.Component {
             style={{ minHeight: "10vh", minWidth: "10vh" }}
           >
             <br /> <br />
-            <div>
-              <img src={logo} width={128} marginTop={273} />
-              <h2
-                style={{
-                  position: "absolute",
-                  width: "229px",
-                  height: "115px",
-                  top: "274px",
-                  right: "732px",
-                  fontFamily: "Mukta",
-                  fontStyle: "normal",
-                  fontWeight: "bold",
-                  lineHeight: "normal",
-                  fontSize: "72px",
-                  color: "#FFFFFA",
-                  textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)"
-                }}
-              >
-                shoom
-              </h2>
-              <div
-                style={{
-                  position: "absolute",
-                  width: "0px",
-                  height: "168px",
-                  top: "262.5px",
-                  border: "2px solid #515052"
-                }}
-              />
-              <p
-                style={{
-                  position: "absolute",
-                  width: "328px",
-                  height: "131px",
-                  top: "282px",
-                  right: "326px",
-                  fontFamily: "Mukta",
-                  fontStyle: "normal",
-                  fontWeight: "normal",
-                  lineHeight: "normal",
-                  fontSize: "18px",
-                  color: "#E8E8E4"
-                }}
-              >
-                Learn new frameworks, technologies, and more at the click of a
-                button. Discover how you learn and get resources and materials
-                delivered in an easy-to-navigate layout.
-              </p>
+            <div style={{display: "flex", alignItems: "center", justifyContent: "center"}}>
+                <img src={logo} width={128} marginTop={273}/>
+                <h2
+                  style={{
+                    // height: "115px",
+                    // top: "274px",
+                    // right: "732px",
+                    fontFamily: "Mukta",
+                    fontStyle: "normal",
+                    fontWeight: "bold",
+                    lineHeight: "normal",
+                    fontSize: "72px",
+                    color: "#FFFFFA",
+                    textShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                    marginRight: "64px"
+                  }}
+                >
+                  shoom
+                </h2>
+                <div id="divide-bar"
+                  style={{
+                    width: "0px",
+                    height: "168px",
+                    // top: "262.5px",
+                    border: "2px solid #515052"
+                  }}
+                ></div>
+                <div style={{width: "300px", marginLeft: "64px"}}>
+                <p
+                  style={{
+          
+                    fontFamily: "Mukta",
+                    fontStyle: "normal",
+                    fontWeight: "normal",
+                    lineHeight: "normal",
+                    fontSize: "18px",
+                    color: "#E8E8E4"
+                  }}
+                >
+                  Learn new frameworks, technologies, and more at the click of a
+                  button. Discover how you learn and get resources and materials
+                  delivered in an easy-to-navigate layout.
+                </p>
+                </div>
+                
             </div>
           </Grid>
+          
           <Grid
             container
             spacing={0}
@@ -95,10 +93,6 @@ class SearchBar extends React.Component {
             justify="center"
             style={{ minHeight: "40vh" }}
           >
-            <Grid item xs={6}>
-              <SimpleCard />
-            </Grid>
-
             <Grid item xs={6}>
               {/* Search-Bar Object */}
               <Paper className={classes.root} elevation={1}>
@@ -113,25 +107,13 @@ class SearchBar extends React.Component {
                   </IconButton>
               </Paper>
             </Grid>
-
-            {/* <Grid item xs={6}>
-              {/* Search-Bar Object 
-              <TextField
-                id="search-bar"
-                label="Enter a framework or technology you want to learn about."
-                placeholder="What are you curious about?"
-                onChange={this.props.onChange}
-                className={classes.textField}
-                margin="normal"
-              />
-            </Grid> */}
           </Grid>
           <div
             style={{
               position: "absolute",
-              width: "1440px",
+              width: "100%",
               height: "227px",
-              bottom: "0px",
+              bottom: "0",
               background: "#515052"
             }}
           />
