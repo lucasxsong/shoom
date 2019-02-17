@@ -6,10 +6,12 @@ import MenuItem from '@material-ui/core/MenuItem';
 import TextField from '@material-ui/core/TextField';
 import Grid from '@material-ui/core/Grid';
 import shumai from './shumai.png';
-
+import { Redirect } from 'react-router-dom'
 
 
 import SimpleCard from './SimpleCard.js';
+import { FormControl } from '@material-ui/core';
+import Results from './Results';
 
 const styles = theme => ({
   container: {
@@ -30,11 +32,37 @@ const styles = theme => ({
 });
 
 class Home extends React.Component {
+
+    state = {
+      toSend: false,
+      search: '',
+    };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    this.setState({
+      toSend: true,
+      search: event.target.value
+    })
+  }
+
+  // handleKeyPress = (e) => {
+  //   if(e.key === 'Enter') {
+  //     console.log('Search Value: ', this.state.search)
+  //     console.log('Enter key pressed.');
+  //     this.props.history.push('/results');
+  //   }
+  // };
+
   render() {
     const { classes } = this.props;
 
+    // if (this.state.toSend === true) {
+    //   return (<Redirect to="/results" />)
+    // }
+
     return (
-      <form className={classes.container} noValidate autoComplete="off">
+      <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
         
         <Grid
           container
@@ -65,13 +93,15 @@ class Home extends React.Component {
 
         <Grid item xs={6}>
           <TextField
-            id="standard-textarea"
+            id="search-bar"
             label="Enter a framework or technology you want to learn about."
-            placeholder="What will it be?"
-            multiline
+            placeholder="What are you curious about?"
+            value={this.state.search}
+            onChange={this.handleChange('search')}
+            // onKeyPress={this.handleKeyPress}
             className={classes.textField}
             margin="normal"
-          />  
+          /> 
         </Grid>   
 
         </Grid> 
