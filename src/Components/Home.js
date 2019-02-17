@@ -12,6 +12,7 @@ import { Redirect } from 'react-router-dom'
 import SimpleCard from './SimpleCard.js';
 import { FormControl } from '@material-ui/core';
 import Results from './Results';
+import SearchBar from './SearchBar.js';
 
 const styles = theme => ({
   container: {
@@ -34,80 +35,85 @@ const styles = theme => ({
 class Home extends React.Component {
 
     state = {
-      toSend: false,
       search: '',
+      hasSearched: false,
+      searchEngine: {
+        videos: [],
+        docs: [],
+        forums: [],
+        articles: []
+      }
     };
 
   handleSubmit = event => {
     event.preventDefault();
     this.setState({
-      toSend: true,
+      hasSearched: true
+    })
+  }
+
+  handleChange = event => {
+    console.log('Called handleChange correctly.');
+    this.setState({
       search: event.target.value
     })
   }
 
-  // handleKeyPress = (e) => {
-  //   if(e.key === 'Enter') {
-  //     console.log('Search Value: ', this.state.search)
-  //     console.log('Enter key pressed.');
-  //     this.props.history.push('/results');
-  //   }
-  // };
-
   render() {
     const { classes } = this.props;
 
-    // if (this.state.toSend === true) {
-    //   return (<Redirect to="/results" />)
-    // }
 
     return (
-      <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
+      <div id="search-bar-display">
+        <SearchBar onChange={this.handleChange} onSubmit={this.handleSubmit} classes={ {classes} } searchQuery={this.state.search}/>
+      </div>
+      
+      // <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
         
-        <Grid
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justify="center"
-          style={{ minHeight: '10vh' , minWidth: "10vh"}}
-        > 
-        <br/> <br />
-        <img src={shumai}  width={100} marginTop={50} mode='fit'/>
-        <h2> shumai </h2>
+      //   <Grid
+      //     container
+      //     spacing={0}
+      //     direction="column"
+      //     alignItems="center"
+      //     justify="center"
+      //     style={{ minHeight: '10vh' , minWidth: "10vh"}}
+      //   > 
+      //   <br/> <br />
+      //   <img src={shumai}  width={100} marginTop={50} mode='fit'/>
+      //   <h2> shumai </h2>
 
-        </Grid>
-         <Grid
-          container
-          spacing={0}
-          direction="column"
-          alignItems="center"
-          justify="center"
+      //   </Grid>
+      //    <Grid
+      //     container
+      //     spacing={0}
+      //     direction="column"
+      //     alignItems="center"
+      //     justify="center"
           
-          style={{ minHeight: '40vh' }}
-        > 
+      //     style={{ minHeight: '40vh' }}
+      //   > 
 
-        <Grid item xs ={6}>
-        <SimpleCard />  
-        </Grid>
+      //   <Grid item xs ={6}>
+      //   <SimpleCard />  
+      //   </Grid>
 
-        <Grid item xs={6}>
-          <TextField
-            id="search-bar"
-            label="Enter a framework or technology you want to learn about."
-            placeholder="What are you curious about?"
-            value={this.state.search}
-            onChange={this.handleChange('search')}
-            // onKeyPress={this.handleKeyPress}
-            className={classes.textField}
-            margin="normal"
-          /> 
-        </Grid>   
+      //   <Grid item xs={6}>
+      //     <TextField
+      //       id="search-bar"
+      //       label="Enter a framework or technology you want to learn about."
+      //       placeholder="What are you curious about?"
+      //       value={this.state.search}
+      //       onChange={this.handleChange}
+      //       className={classes.textField}
+      //       margin="normal"
+      //     /> 
+      //   </Grid>   
 
-        </Grid> 
+      //   </Grid> 
             
           
-      </form>
+      // </form>
+
     );
   }
 }
