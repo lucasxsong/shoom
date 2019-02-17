@@ -28,12 +28,11 @@ const styles = {
 
 function WebsiteCard(props) {
   const { classes, data } = props;
-  //console.log(data.pagemap.cse_thumbnail.src.toString());
-  console.log(data.formattedUrl);
+
   return (
     <Card className={classes.card}>
       <CardActionArea>
-      <a href = {data.formattedUrl.toString()} target = "_blank">
+      
         <CardContent>
           <Typography gutterBottom variant="h6" component="h6">
             {data.title.toString()}
@@ -42,12 +41,21 @@ function WebsiteCard(props) {
             {data.snippet.toString()}
           </Typography>
         </CardContent>
+        
+        <a href = {data.formattedUrl.toString()} target = "_blank">
+        {
+            data.pagemap.cse_image && (
+                <CardMedia
+                    component = 'img'
+                    maxHeight = '120'
+                    className={classes.media}
+                    image={ data.pagemap.cse_image[0].src}
+                    title={data.title.toString()}
+                    />
+            )
+        } 
         </a>
-        <CardMedia
-          className={classes.media}
-          //image={data.pagemap.cse_thumbnail.src}
-          title={data.title.toString()}
-        />
+        
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
