@@ -54,6 +54,7 @@ function Results(props) {
       </Typography>
       </CardContent>
       </CardActionArea>
+    
       <HorizScroll />
 
       <Typography component="p">

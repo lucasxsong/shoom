@@ -15,35 +15,37 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 const styles = {
   card: {
     maxWidth: 250,
-    margin: 10,
+    maxHeight: 250,
+    margin: 5,
     whiteSpace: 'pre-wrap',
     size: 5,
+    background: '#ffffff',
   },
   media: {
-    height: 80,
+   height: 80,
   },
 };
 
 function WebsiteCard(props) {
-  const { classes } = props;
-
-  let cardList = []
+  const { classes, data } = props;
   return (
     <Card className={classes.card}>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={classes.preview}
-          title={classes.title}
-        />
         <CardContent>
           <Typography gutterBottom variant="h6" component="h6">
-            {classes.title}
+            {data.name}
           </Typography>
           <Typography component="p">
-            {classes.desc}
+            {data.snippet}
           </Typography>
         </CardContent>
+        <a href = {data.url} target = "_blank">
+        <CardMedia
+          className={classes.media}
+          image={data.preview}
+          title={data.name}
+        />
+        </a>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
