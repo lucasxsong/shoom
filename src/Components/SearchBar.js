@@ -3,6 +3,10 @@ import TextField from "@material-ui/core/TextField";
 import logo from "./shoom_logo.png";
 import SimpleCard from "./SimpleCard.js";
 import Grid from "@material-ui/core/Grid";
+import Paper from '@material-ui/core/Paper';
+import InputBase from '@material-ui/core/InputBase';
+import IconButton from '@material-ui/core/IconButton';
+import SearchIcon from '@material-ui/icons/Search';
 import Home from "./Home.js";
 import PropTypes from "prop-types";
 import { withStyles } from "@material-ui/core/styles";
@@ -97,6 +101,21 @@ class SearchBar extends React.Component {
 
             <Grid item xs={6}>
               {/* Search-Bar Object */}
+              <Paper className={classes.root} elevation={1}>
+                <InputBase
+                  className={classes.input}
+                  placeholder="Shoom something new."
+                  onChange={this.props.onChange}
+                  margin="normal"
+                  />
+                  <IconButton className={classes.iconButton} aria-label="Search" onClick={this.props.onSubmit}>
+                    <SearchIcon />
+                  </IconButton>
+              </Paper>
+            </Grid>
+
+            {/* <Grid item xs={6}>
+              {/* Search-Bar Object 
               <TextField
                 id="search-bar"
                 label="Enter a framework or technology you want to learn about."
@@ -105,7 +124,7 @@ class SearchBar extends React.Component {
                 className={classes.textField}
                 margin="normal"
               />
-            </Grid>
+            </Grid> */}
           </Grid>
           <div
             style={{
