@@ -8,7 +8,7 @@ import WebsiteCard from './Cards/WebsiteCard.js';
 import MediaCard from './Cards/MediaCard.js';
  
 // list of items
-const list = [
+const list1 = [
   { name: 'item1',
       title: 'react js tutorials',
     snippet: 'cool video on react',
@@ -86,9 +86,10 @@ class HorizScroll extends Component {
 
   
   render() {
+    const linkData = this.props.list;
     const { selected } = this.state;
     // Create menu from items
-    const menu = Menu(list, selected);
+    const menu = Menu(linkData, selected);
  
     return (
       <div className="HorizScroll">

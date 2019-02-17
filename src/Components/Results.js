@@ -17,7 +17,116 @@ import './Results.css';
 
 // sort by type, sorting from data set unsorted 
 
+const list1 = [
+  { name: 'name1',
+      title: 'this is list one',
+    snippet: 'cool video on react',
+    preview: 'https://i.ytimg.com/vi/4OGMB4Fhh50/maxresdefault.jpg',
+    url: 'https://khanacademy.com',
+    type: 'video'},
+    
+  { name: 'item2',
+    title: 'react js tutorials',
+    snippet: 'quick tips on getting started with react js, ez tutorial',
+    preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+    url: 'https://khanacademy.com',
+    type: 'website'},
 
+  { name: 'item3',
+    title: 'react js tutorials',
+  snippet: 'quick tips on getting started with react js, ez tutorial',
+  preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  url: 'https://khanacademy.com',
+  type: 'website'},
+
+  { name: 'item4',
+  title: 'react js tutorials',
+  snippet: 'quick tips on getting started with react js, ez tutorial',
+  preview: 'https://i.ytimg.com/vi/4OGMB4Fhh50/maxresdefault.jpg',
+  url: 'khanacademy.com',
+  type: 'video'},
+
+  { name: 'item5',
+  title: 'react js tutorials',
+  snippet: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  url: 'https://khanacademy.com',
+  type: 'website'},
+];
+
+const list2 = [
+  { name: 'name1',
+      title: 'this is list 2',
+    snippet: 'cool video on react',
+    preview: 'https://i.ytimg.com/vi/4OGMB4Fhh50/maxresdefault.jpg',
+    url: 'https://khanacademy.com',
+    type: 'video'},
+    
+  { name: 'item2',
+    title: 'react js tutorials',
+    snippet: 'quick tips on getting started with react js, ez tutorial',
+    preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+    url: 'https://khanacademy.com',
+    type: 'website'},
+
+  { name: 'item3',
+    title: 'react js tutorials',
+  snippet: 'quick tips on getting started with react js, ez tutorial',
+  preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  url: 'https://khanacademy.com',
+  type: 'website'},
+
+  { name: 'item4',
+  title: 'react js tutorials',
+  snippet: 'quick tips on getting started with react js, ez tutorial',
+  preview: 'https://i.ytimg.com/vi/4OGMB4Fhh50/maxresdefault.jpg',
+  url: 'khanacademy.com',
+  type: 'video'},
+
+  { name: 'item5',
+  title: 'react js tutorials',
+  snippet: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  url: 'https://khanacademy.com',
+  type: 'website'},
+];
+
+const list3 = [
+  { name: 'item3',
+      title: 'this is list 3',
+    snippet: 'cool video on react',
+    preview: 'https://i.ytimg.com/vi/4OGMB4Fhh50/maxresdefault.jpg',
+    url: 'https://khanacademy.com',
+    type: 'video'},
+    
+  { name: 'item2',
+    title: 'react js tutorials',
+    snippet: 'quick tips on getting started with react js, ez tutorial',
+    preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+    url: 'https://khanacademy.com',
+    type: 'website'},
+
+  { name: 'item3',
+    title: 'react js tutorials',
+  snippet: 'quick tips on getting started with react js, ez tutorial',
+  preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  url: 'https://khanacademy.com',
+  type: 'website'},
+
+  { name: 'item4',
+  title: 'react js tutorials',
+  snippet: 'quick tips on getting started with react js, ez tutorial',
+  preview: 'https://i.ytimg.com/vi/4OGMB4Fhh50/maxresdefault.jpg',
+  url: 'khanacademy.com',
+  type: 'video'},
+
+  { name: 'item5',
+  title: 'react js tutorials',
+  snippet: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  url: 'https://khanacademy.com',
+  type: 'website'},
+];
 
 const styles = {
   card: {
@@ -56,8 +165,7 @@ class Results extends React.Component {
       </Typography>
       </CardContent>
       </CardActionArea>
-    
-      <HorizScroll />
+      <HorizScroll list={list1}/>
 
       <Typography component="p">
         
@@ -79,7 +187,7 @@ class Results extends React.Component {
           </Typography>
           </CardContent>
           </CardActionArea>
-          <HorizScroll />
+          <HorizScroll list={list2}/>
         
     </Card>
     </Grid>
@@ -96,7 +204,7 @@ class Results extends React.Component {
           </Typography>
           </CardContent>
         </CardActionArea>
-          <HorizScroll />
+          <HorizScroll list={list3}/>
         
       </Card>
       </Grid>
