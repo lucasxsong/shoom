@@ -5,16 +5,6 @@ import Route from "../App.js";
 import { Redirect } from "react-router";
 
 class Search extends React.Component {
-  state = {
-    error: null,
-    isLoaded: false,
-    results: {
-      videos: [],
-      docs: [],
-      forums: [],
-      articles: []
-    }
-  };
 
   async componentDidMount() {
     try {
@@ -23,38 +13,22 @@ class Search extends React.Component {
       );
       const jsonData = await rawData.json();
 
-      const videos = [];
-      const docs = [];
-      const forums = [];
-      const articles = [];
-
       jsonData.items.forEach(item => {
         if (/youtube|khanacademy|vimeo/.test(item.link.toLowerCase())) {
-          videos.push(item);
+          this.props.searchVideos.push(item);
         } else if (
           /stackoverflow|medium|reddit|github/.test(item.link.toLowerCase())
         ) {
-          forums.push(item);
+          this.props.searchForums.push(item);
         } else if (item.link.toLowerCase().includes(".org")) {
-          docs.push(item);
+          this.props.searchDocs.push(item);
         } else {
-          articles.push(item);
+          this.props.searchArticles.push(item);
         }
       });
 
-      console.table(videos);
+      this.props.addResults();  //Update Home state variables with result lists
 
-      const newResults = {
-        videos,
-        docs,
-        articles,
-        forums
-      };
-
-      this.setState({
-        results: newResults,
-        isLoaded: true
-      });
     } catch (e) {
       this.setState({
         error: e,
@@ -64,39 +38,7 @@ class Search extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, results } = this.state;
-
-    return (
-      <div>
-        {error ? (
-          <div>Error: {error.message} </div>
-        ) : (
-          <>
-            <ul>
-              {results.videos.map(tile => (
-                <li key={tile.title}>
-                  {/* {" "} */}
-                  {tile.title}
-                  {tile.snippet}
-                  <Preview />
-                </li>
-              ))}{" "}
-            </ul>
-
-            <ul>
-              {results.forums.map(tile => (
-                <li key={tile.title}>
-                  {" "}
-                  {tile.title}
-                  {tile.snippet}
-                  <Preview />
-                </li>
-              ))}{" "}
-            </ul>
-          </>
-        )}
-      </div>
-    );
+    return(null);
   }
 }
 

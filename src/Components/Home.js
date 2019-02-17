@@ -56,6 +56,16 @@ class Home extends React.Component {
     });
   };
 
+  addResults = event =>{
+    console.log('Event: ', event);
+    let searchEngine = {...this.state.searchEngine};
+    searchEngine.videos = event.videos;
+    searchEngine.docs = event.docs;
+    searchEngine.forums = event.forums;
+    searchEngine.articles = event.articles;
+    this.setState({searchEngine});
+  }
+
   render() {
     const { classes } = this.props;
 
@@ -76,6 +86,14 @@ class Home extends React.Component {
       //FIXME: Implement Search functions HERE
       return (
         <div id="results-display">
+          <Search 
+            searchVideos={this.state.searchEngine.videos}
+            searchForums={this.state.searchEngine.forums}
+            searchDocs={this.state.searchEngine.docs}
+            searchArticles={this.state.searchEngine.articles}
+            addResults={this.addResults}
+            query={this.state.search}
+          />
           <Results 
             query={this.state.search}
             classes={{ classes }}
