@@ -28,7 +28,7 @@ const styles = {
 
 function WebsiteCard(props) {
   const { classes, data } = props;
-  console.log(data.title);
+  //console.log(data.pagemap.cse_thumbnail.src.toString());
   
   return (
     <Card className={classes.card}>
@@ -44,7 +44,7 @@ function WebsiteCard(props) {
         <a href = {data.formattedUrl} target = "_blank">
         <CardMedia
           className={classes.media}
-          image={data.pagemap.cse_thumbnail.src}
+          //image={data.pagemap.cse_thumbnail.src}
           title={data.title.toString()}
         />
         </a>
