@@ -15,7 +15,7 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 const styles = {
   card: {
     maxWidth: 250,
-    maxHeight: 250,
+    maxHeight: 350,
     margin: 5,
     whiteSpace: 'pre-wrap',
     size: 5,
@@ -29,10 +29,11 @@ const styles = {
 function WebsiteCard(props) {
   const { classes, data } = props;
   //console.log(data.pagemap.cse_thumbnail.src.toString());
-  
+  console.log(data.formattedUrl);
   return (
     <Card className={classes.card}>
       <CardActionArea>
+      <a href = {data.formattedUrl.toString()} target = "_blank">
         <CardContent>
           <Typography gutterBottom variant="h6" component="h6">
             {data.title.toString()}
@@ -41,13 +42,12 @@ function WebsiteCard(props) {
             {data.snippet.toString()}
           </Typography>
         </CardContent>
-        <a href = {data.formattedUrl} target = "_blank">
+        </a>
         <CardMedia
           className={classes.media}
           //image={data.pagemap.cse_thumbnail.src}
           title={data.title.toString()}
         />
-        </a>
       </CardActionArea>
       <CardActions>
         <Button size="small" color="primary">
