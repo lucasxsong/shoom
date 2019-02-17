@@ -1,96 +1,103 @@
-import React from 'react';
-import Preview from './Preview.js';
-{/*import firebase from '../firebase.js';*/}
+import React from "react";
+import Preview from "./Preview.js";
+import Results from "./Results.js";
+import Route from "../App.js";
+import { Redirect } from "react-router";
 
 class Search extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-		  error: null,
-		  isLoaded: false,
-      items: [],
-      youtube: []
+  state = {
+    error: null,
+    isLoaded: false,
+    results: {
+      videos: [],
+      docs: [],
+      forums: [],
+      articles: []
     }
-    {/*this.handleChange = this.handleChange.bind(this);*/}
-	}
+  };
 
-  componentDidMount() {
-    fetch("https://www.googleapis.com/customsearch/v1?q=react&cx=009814564409014083669%3Ap0abuzhzwbs&key=AIzaSyBPimiYMdLwWK6XBSjbSer-alj76YukPwU")
-      .then(res => res.json())
-      .then(
-        (result) => {
-          this.setState({
-            isLoaded: true,
-            items: result.items
-          })
-          console.table(result.items);
+  async componentDidMount() {
+    try {
+      const rawData = await fetch(
+        "https://www.googleapis.com/customsearch/v1?q=react&cx=001608508911589604671:q8d2bskgh54&key=AIzaSyA1TOKf4HOIDbu456zWSMlKD1Q1_JWKCPo"
+      );
+      const jsonData = await rawData.json();
 
-          const youtube = [];
+      const videos = [];
+      const docs = [];
+      const forums = [];
+      const articles = [];
 
-          result.items.forEach(item => {
-            if(item.title.includes('React')) {
-              youtube.push(item);
-            }
-          })
-          this.setState({youtube})
-          },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
+      jsonData.items.forEach(item => {
+        if (/youtube|khanacademy|vimeo/.test(item.link.toLowerCase())) {
+          videos.push(item);
+        } else if (
+          /stackoverflow|medium|reddit|github/.test(item.link.toLowerCase())
+        ) {
+          forums.push(item);
+        } else if (item.link.toLowerCase().includes(".org")) {
+          docs.push(item);
+        } else {
+          articles.push(item);
         }
-      )
-    
-    {/*const { error, isLoaded, items } = this.state;
-    const youtube = [];
+      });
 
-    console.table(this.state.items);
+      console.table(videos);
 
-    this.state.items.forEach(item => {
-      if ('youtube' in item.displayLink === true) {
-        youtube.push(item);
-      }
-      else {
-        youtube.push(item);
-      }
-    })
-    this.setState({youtube})
-  */}
+      const newResults = {
+        videos,
+        docs,
+        articles,
+        forums
+      };
+
+      this.setState({
+        results: newResults,
+        isLoaded: true
+      });
+    } catch (e) {
+      this.setState({
+        error: e,
+        isLoaded: true
+      });
+    }
   }
 
   render() {
-    const { error, isLoaded, items, youtube } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-      return (
-        <ul>
-          {/*
-          {items.map(item => (
-            <li key={item.title}>
-              {item.title} {item.snippet}
-              <Preview />
-            </li>
-          ))}
-          */}
-          {youtube.map(tile => (
-            <li key={tile.title}>
-              {tile.title} {tile.snippet}
-              <Preview />
-            </li>
-          ))}
-        </ul>
-      );
-    }
+    const { error, isLoaded, results } = this.state;
+
+    return (
+      <div>
+        {error ? (
+          <div>Error: {error.message} </div>
+        ) : (
+          <>
+            <ul>
+              {results.videos.map(tile => (
+                <li key={tile.title}>
+                  {/* {" "} */}
+                  {tile.title}
+                  {tile.snippet}
+                  <Preview />
+                </li>
+              ))}{" "}
+            </ul>
+
+            <ul>
+              {results.forums.map(tile => (
+                <li key={tile.title}>
+                  {" "}
+                  {tile.title}
+                  {tile.snippet}
+                  <Preview />
+                </li>
+              ))}{" "}
+            </ul>
+          </>
+        )}
+      </div>
+    );
   }
-
-
 }
 
 export default Search;
