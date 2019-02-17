@@ -8,8 +8,9 @@ class Search extends React.Component {
 
   async componentDidMount() {
     try {
+      const googleString = "#https://www.googleapis.com/customsearch/v1?q=" + this.props.query + "&cx=001608508911589604671:q8d2bskgh54&key=AIzaSyA1TOKf4HOIDbu456zWSMlKD1Q1_JWKCPo";
       const rawData = await fetch(
-        "https://www.googleapis.com/customsearch/v1?q=react&cx=001608508911589604671:q8d2bskgh54&key=AIzaSyA1TOKf4HOIDbu456zWSMlKD1Q1_JWKCPo"
+        {googleString}
       );
       const jsonData = await rawData.json();
 
