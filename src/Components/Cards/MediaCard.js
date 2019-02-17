@@ -15,6 +15,7 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 const styles = {
   card: {
     maxWidth: 250,
+    maxHeight: 200,
     margin: 10,
     whiteSpace: 'pre-wrap',
     size: 5,
@@ -25,21 +26,23 @@ const styles = {
 };
 
 function MediaCard(props) {
-  const { classes } = props;
+  const { classes, data } = props;
+  const preview = <img src = {classes.preview} />
   return (
     <Card className={classes.card}>
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={classes.preview}
-          title={classes.title}
+          image= {preview}
+          title={data.name}
+          media = {data.media}
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="h6">
-            {classes.title}
+            {data.name}
           </Typography>
           <Typography component="p">
-            {classes.desc}
+            {data.snippet}
           </Typography>
         </CardContent>
       </CardActionArea>

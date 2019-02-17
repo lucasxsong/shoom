@@ -10,44 +10,51 @@ import MediaCard from './Cards/MediaCard.js';
 // list of items
 const list = [
   { name: 'item1',
+      title: 'react js tutorials',
+    snippet: 'https://cdn2.techadvisor.co.uk/cmsdata/features/3511087/how-to-fix-youtube-videos-that-wont-play_thumb800.jpg',
+    preview: 'goo',
+    type: 'video'},
+    
+  { name: 'item2',
     title: 'react js tutorials',
-   snippet: 'quick tips on getting started with react js, ez tutorial',
-   preview: 'goo'},
-  { name: 'item2' },
-  { name: 'item3' },
-  { name: 'item4' },
-  { name: 'item5' },
-  { name: 'item6' },
-  { name: 'item7' },
-  { name: 'item8' },
-  { name: 'item9' },
+    snippet: 'quick tips on getting started with react js, ez tutorial',
+    preview: 'https://cdn2.techadvisor.co.uk/cmsdata/features/3511087/how-to-fix-youtube-videos-that-wont-play_thumb800.jpg',
+    type: 'video'},
+
+  { name: 'item3',
+    title: 'react js tutorials',
+  snippet: 'quick tips on getting started with react js, ez tutorial',
+  preview: 'goo',
+  type: 'website'},
+  { name: 'item4',
+  title: 'react js tutorials',
+  snippet: 'quick tips on getting started with react js, ez tutorial',
+  preview: 'https://cdn2.techadvisor.co.uk/cmsdata/features/3511087/how-to-fix-youtube-videos-that-wont-play_thumb800.jpg',
+  type: 'video'},
+
+  { name: 'item5',
+  title: 'react js tutorials',
+  snippet: 'quick tips on getting started with react js, ez tutorial',
+  preview: 'goo',
+  type: 'website'},
 ];
  
-// One item component
-// selected prop will be passed
-const MenuItem = ({ text, selected }) => {
-  return (
-    <WebsiteCard
-      media = {MenuItem.title}
-      title = {MenuItem.title}
-      desc = {MenuItem.snippet}
-    />
-  );
-};
  
 // All items component
 // Important! add unique key
 export const Menu = (list) => list.map(el => {
-  const { name } = el;
- 
-  return (
-    <MenuItem
-      text={name}
-      key={name}
-      title = {list.title}
-      snippet = {list.snippet}
-    />
-  );
+  if (el.type === 'video') {
+    return (
+      <MediaCard data={el}/>
+    );
+  }
+
+  else {
+    return (
+      <WebsiteCard data={el} />
+    );
+  }
+  
 });
  
  
@@ -65,12 +72,14 @@ const ArrowRight = Arrow({ text: '>', className: 'arrow-next' });
  
 class HorizScroll extends Component {
   state = {
-    selected: 'item1'
+    selected: 'item0'
   };
   
   onSelect = key => {
     this.setState({ selected: key });
   }
+
+
  
   
   render() {

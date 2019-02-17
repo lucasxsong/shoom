@@ -15,6 +15,7 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 const styles = {
   card: {
     maxWidth: 250,
+    maxHeight: 200,
     margin: 10,
     whiteSpace: 'pre-wrap',
     size: 5,
@@ -25,7 +26,7 @@ const styles = {
 };
 
 function WebsiteCard(props) {
-  const { classes } = props;
+  const { classes, data } = props;
 
   let cardList = []
   return (
@@ -33,15 +34,15 @@ function WebsiteCard(props) {
       <CardActionArea>
         <CardMedia
           className={classes.media}
-          image={classes.preview}
-          title={classes.title}
+          image={data.preview}
+          title={data.name}
         />
         <CardContent>
           <Typography gutterBottom variant="h6" component="h6">
-            {classes.title}
+            {data.name}
           </Typography>
           <Typography component="p">
-            {classes.desc}
+            {data.snippet}
           </Typography>
         </CardContent>
       </CardActionArea>
