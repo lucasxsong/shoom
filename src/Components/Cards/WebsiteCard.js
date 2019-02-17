@@ -28,22 +28,24 @@ const styles = {
 
 function WebsiteCard(props) {
   const { classes, data } = props;
+  console.log(data.title);
+  
   return (
     <Card className={classes.card}>
       <CardActionArea>
         <CardContent>
           <Typography gutterBottom variant="h6" component="h6">
-            {data.name}
+            {data.title.toString()}
           </Typography>
           <Typography component="p">
-            {data.snippet}
+            {data.snippet.toString()}
           </Typography>
         </CardContent>
-        <a href = {data.url} target = "_blank">
+        <a href = {data.formattedUrl} target = "_blank">
         <CardMedia
           className={classes.media}
-          image={data.preview}
-          title={data.name}
+          image={data.pagemap.cse_thumbnail.src}
+          title={data.title.toString()}
         />
         </a>
       </CardActionArea>

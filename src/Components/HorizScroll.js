@@ -61,15 +61,13 @@ const list1 = [
 
 // All items component
 // Important! add unique key
-export const Menu = list =>
-  list.map(el => {
-    console.log("horiz");
+export const Menu = map =>
+  map.map(el => {
     // if (el.type === 'video') {
     //   return (
     //     <MediaCard data={el}/>
     //   );
     // }
-
     // else {
     return <WebsiteCard data={el} />;
     // }
@@ -94,7 +92,8 @@ class HorizScroll extends Component {
   render() {
     const linkData = this.props.list;
     const { selected } = this.state;
-    // Create menu from items
+    // Create menu from items\
+    console.log('gjhj', linkData);
     const menu = Menu(linkData, selected);
 
     return (

@@ -180,11 +180,16 @@ const styles = {
 // can change xs values to dictate weighted categories
 class Results extends React.Component {
   render() {
-    const { classes } = this.props.classes;
-    console.dir(this.props.searchResults.videos);
+    const { classes} = this.props.classes;
 
-    // console.log("RESULTS");
-    // console.table(this.props.videos);
+     //console.log("RESULTS");
+     console.table(this.searchVideos);
+
+     //console.table(this.searchResults.forums);
+
+     //console.table(this.searchResults.docs);
+
+      //console.table(this.searchResults.articles);
 
     return (
       <div class="resultBody">
@@ -195,7 +200,7 @@ class Results extends React.Component {
           alignItems="stretch"
         >
           <Grid item xs>
-            <Card className={classes.card}>
+            <Card className = {classes.card}>
               <CardActionArea>
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="h7">
@@ -209,7 +214,7 @@ class Results extends React.Component {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <HorizScroll list={this.props.searchResults.videos} />
+              <HorizScroll list={this.props.searchForums} />
 
               <Typography component="p" />
             </Card>
@@ -230,7 +235,7 @@ class Results extends React.Component {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <HorizScroll list={list2} />
+              <HorizScroll list={this.props.searchVideos} />
             </Card>
           </Grid>
           <Grid item xs>
@@ -248,7 +253,26 @@ class Results extends React.Component {
                   </Typography>
                 </CardContent>
               </CardActionArea>
-              <HorizScroll list={list3} />
+              <HorizScroll list={this.props.searchDocs} />
+            </Card>
+          </Grid>
+
+          <Grid item xs>
+            <Card className={classes.card}>
+              <CardActionArea>
+                <CardContent>
+                  <Typography gutterBottom variant="h6" component="h7">
+                    and also some
+                  </Typography>
+                  <Typography gutterBottom variant="h5" component="h3">
+                    documentation on{" "}
+                    <mark>
+                      <b>{this.props.query}</b>
+                    </mark>
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+              <HorizScroll list={this.props.searchArticles} />
             </Card>
           </Grid>
         </Grid>

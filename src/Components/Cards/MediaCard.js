@@ -32,7 +32,7 @@ function MediaCard(props) {
   return (
     <Card className={classes.card}>
       <CardActionArea>
-      <a href = {data.url} target = "_blank">
+      <a href = {data.link} target = "_blank">
         <CardMedia
           className={classes.media}
           image= {data.preview}

@@ -57,13 +57,15 @@ class Home extends React.Component {
   };
 
   addResults = event => {
-    console.log("Event: ", event);
-    let searchEngine = { ...this.state.searchEngine };
+    console.log("new items to update", event);
+    let searchEngine = {};
     searchEngine.videos = event.videos;
     searchEngine.docs = event.docs;
     searchEngine.forums = event.forums;
     searchEngine.articles = event.articles;
+    console.log('new state', searchEngine)
     this.setState({ searchEngine });
+    console.log('updating search engine', this.state.searchEngine)
   };
 
   render() {
@@ -95,7 +97,11 @@ class Home extends React.Component {
           />
           <Results
             query={this.state.search}
-            searchResults={this.state.searchEngine}
+            searchVideos={this.state.searchEngine.videos}
+            searchDocs={this.state.searchEngine.docs}
+            searchArticles={this.state.searchEngine.articles}
+            searchForums={this.state.searchEngine.forums}
+
             classes={{ classes }}
           />
         </div>

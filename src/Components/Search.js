@@ -11,7 +11,7 @@ class Search extends React.Component {
       const googleString =
         "https://www.googleapis.com/customsearch/v1?q=" +
         this.props.query +
-        "&cx=001608508911589604671:q8d2bskgh54&key=AIzaSyA1TOKf4HOIDbu456zWSMlKD1Q1_JWKCPo";
+        "&cx=001411889088445407942:9ydhowmyqyq&key=AIzaSyDxW_xjrBiK7NIorOpioD5f6cvBjeGfw9Q";
       // console.log(googleString);
       const rawData = await fetch(googleString);
       // const rawData = await fetch(
@@ -20,23 +20,34 @@ class Search extends React.Component {
       const jsonData = await rawData.json();
 
       // console.table(jsonData);
+      var searchVideos = [];
+      var searchForums = [];
+      var searchDocs = [];
+      var searchArticles = [];
 
       jsonData.items.forEach(item => {
         if (/youtube|khanacademy|vimeo/.test(item.link.toLowerCase())) {
-          this.props.searchVideos.push(item);
+          searchVideos.push(item);
         } else if (
           /stackoverflow|medium|reddit|github/.test(item.link.toLowerCase())
         ) {
-          this.props.searchForums.push(item);
+          searchForums.push(item);
         } else if (item.link.toLowerCase().includes(".org")) {
-          this.props.searchDocs.push(item);
+          searchDocs.push(item);
         } else {
-          this.props.searchArticles.push(item);
+          searchArticles.push(item);
         }
       });
-
-      console.table(this.props.searchArticles);
-      this.props.addResults(); //Update Home state variables with result lists
+      
+      var searchResults = {
+        videos: searchVideos,
+        forums: searchForums,
+        docs: searchDocs,
+        articles: searchArticles,
+      }
+      
+      console.log('search', this.props.searchVideos);
+      this.props.addResults(searchResults); //Update Home state variables with result lists
     } catch (e) {
       this.setState({
         error: e,
