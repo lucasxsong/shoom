@@ -7,6 +7,7 @@ import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
+import { Link } from 'react-router-dom'
 import Typography from '@material-ui/core/Typography';
 
 import MaterialIcon, {colorPalette} from 'material-icons-react';
@@ -15,10 +16,11 @@ import MaterialIcon, {colorPalette} from 'material-icons-react';
 const styles = {
   card: {
     maxWidth: 250,
-    maxHeight: 200,
-    margin: 10,
+    maxHeight: 250,
+    margin: 5,
     whiteSpace: 'pre-wrap',
     size: 5,
+    background: '#fff3e0',
   },
   media: {
     height: 120,
@@ -27,27 +29,28 @@ const styles = {
 
 function MediaCard(props) {
   const { classes, data } = props;
-  const preview = <img src = {classes.preview} />
   return (
     <Card className={classes.card}>
       <CardActionArea>
+      <a href = {data.url} target = "_blank">
         <CardMedia
           className={classes.media}
-          image= {preview}
+          image= {data.preview}
           title={data.name}
-          media = {data.media}
         />
+        </a>
         <CardContent>
-          <Typography gutterBottom variant="h6" component="h6">
-            {data.name}
+          <Typography component="p" variant = "p">
+            {data.snippet} by 
           </Typography>
-          <Typography component="p">
-            {data.snippet}
+          <Typography component="h6" variant ="h7">
+          {data.title}
           </Typography>
         </CardContent>
       </CardActionArea>
+      
       <CardActions>
-        <Button size="small" color="primary">
+        <Button href = {data.preview} size="small" color="primary">
         <MaterialIcon icon="bookmark" />
         </Button>
         <Button size="small" color="primary">

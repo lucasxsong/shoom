@@ -11,34 +11,39 @@ import MediaCard from './Cards/MediaCard.js';
 const list = [
   { name: 'item1',
       title: 'react js tutorials',
-    snippet: 'https://cdn2.techadvisor.co.uk/cmsdata/features/3511087/how-to-fix-youtube-videos-that-wont-play_thumb800.jpg',
-    preview: 'goo',
+    snippet: 'cool video on react',
+    preview: 'https://i.ytimg.com/vi/4OGMB4Fhh50/maxresdefault.jpg',
+    url: 'https://khanacademy.com',
     type: 'video'},
     
   { name: 'item2',
     title: 'react js tutorials',
     snippet: 'quick tips on getting started with react js, ez tutorial',
-    preview: 'https://cdn2.techadvisor.co.uk/cmsdata/features/3511087/how-to-fix-youtube-videos-that-wont-play_thumb800.jpg',
-    type: 'video'},
+    preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+    url: 'https://khanacademy.com',
+    type: 'website'},
 
   { name: 'item3',
     title: 'react js tutorials',
   snippet: 'quick tips on getting started with react js, ez tutorial',
-  preview: 'goo',
+  preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  url: 'https://khanacademy.com',
   type: 'website'},
+
   { name: 'item4',
   title: 'react js tutorials',
   snippet: 'quick tips on getting started with react js, ez tutorial',
-  preview: 'https://cdn2.techadvisor.co.uk/cmsdata/features/3511087/how-to-fix-youtube-videos-that-wont-play_thumb800.jpg',
+  preview: 'https://i.ytimg.com/vi/4OGMB4Fhh50/maxresdefault.jpg',
+  url: 'khanacademy.com',
   type: 'video'},
 
   { name: 'item5',
   title: 'react js tutorials',
-  snippet: 'quick tips on getting started with react js, ez tutorial',
-  preview: 'goo',
+  snippet: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  preview: 'https://camo.githubusercontent.com/cc60f3c5a0167e8fab8efeceedc51718f10e0a60/68747470733a2f2f7261772e6769746875622e636f6d2f6e6f72697079742f7761677461696c2d72656163742d73747265616d6669656c642f6d61737465722f7761677461696c2d72656163742d73747265616d6669656c642d73637265656e73686f742d312e706e67',
+  url: 'https://khanacademy.com',
   type: 'website'},
 ];
- 
  
 // All items component
 // Important! add unique key
@@ -79,8 +84,6 @@ class HorizScroll extends Component {
     this.setState({ selected: key });
   }
 
-
- 
   
   render() {
     const { selected } = this.state;
