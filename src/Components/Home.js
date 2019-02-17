@@ -53,7 +53,6 @@ class Home extends React.Component {
   }
 
   handleChange = event => {
-    console.log('Called handleChange correctly.');
     this.setState({
       search: event.target.value
     })
@@ -65,54 +64,8 @@ class Home extends React.Component {
 
     return (
       <div id="search-bar-display">
-        <SearchBar onChange={this.handleChange} onSubmit={this.handleSubmit} classes={ {classes} } searchQuery={this.state.search}/>
+        <SearchBar onChange={this.handleChange} onSubmit={this.handleSubmit} classes={ {classes} } />
       </div>
-      
-      // <form className={classes.container} noValidate autoComplete="off" onSubmit={this.handleSubmit}>
-        
-      //   <Grid
-      //     container
-      //     spacing={0}
-      //     direction="column"
-      //     alignItems="center"
-      //     justify="center"
-      //     style={{ minHeight: '10vh' , minWidth: "10vh"}}
-      //   > 
-      //   <br/> <br />
-      //   <img src={shumai}  width={100} marginTop={50} mode='fit'/>
-      //   <h2> shumai </h2>
-
-      //   </Grid>
-      //    <Grid
-      //     container
-      //     spacing={0}
-      //     direction="column"
-      //     alignItems="center"
-      //     justify="center"
-          
-      //     style={{ minHeight: '40vh' }}
-      //   > 
-
-      //   <Grid item xs ={6}>
-      //   <SimpleCard />  
-      //   </Grid>
-
-      //   <Grid item xs={6}>
-      //     <TextField
-      //       id="search-bar"
-      //       label="Enter a framework or technology you want to learn about."
-      //       placeholder="What are you curious about?"
-      //       value={this.state.search}
-      //       onChange={this.handleChange}
-      //       className={classes.textField}
-      //       margin="normal"
-      //     /> 
-      //   </Grid>   
-
-      //   </Grid> 
-            
-          
-      // </form>
 
     );
   }
