@@ -265,7 +265,7 @@ class Results extends React.Component {
                     and also some
                   </Typography>
                   <Typography gutterBottom variant="h5" component="h3">
-                    documentation on{" "}
+                    articles on{" "}
                     <mark>
                       <b>{this.props.query}</b>
                     </mark>
