@@ -92,6 +92,7 @@ class Home extends React.Component {
             searchDocs={this.state.searchEngine.docs}
             searchArticles={this.state.searchEngine.articles}
             addResults={this.addResults}
+            query={this.state.search}
           />
           <Results 
             query={this.state.search}

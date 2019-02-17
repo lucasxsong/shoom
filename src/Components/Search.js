@@ -5,16 +5,6 @@ import Route from "../App.js";
 import { Redirect } from "react-router";
 
 class Search extends React.Component {
-  state = {
-    error: null,
-    isLoaded: false,
-    results: {
-      // videos: [],
-      // docs: [],
-      // forums: [],
-      // articles: []
-    }
-  };
 
   async componentDidMount() {
     try {
@@ -22,11 +12,6 @@ class Search extends React.Component {
         "https://www.googleapis.com/customsearch/v1?q=react&cx=001608508911589604671:q8d2bskgh54&key=AIzaSyA1TOKf4HOIDbu456zWSMlKD1Q1_JWKCPo"
       );
       const jsonData = await rawData.json();
-
-      const videos = [];
-      const docs = [];
-      const forums = [];
-      const articles = [];
 
       jsonData.items.forEach(item => {
         if (/youtube|khanacademy|vimeo/.test(item.link.toLowerCase())) {
@@ -42,20 +27,7 @@ class Search extends React.Component {
         }
       });
 
-
-      const newResults = {
-        videos,
-        docs,
-        articles,
-        forums
-      };
-
-      // this.setState({
-      //   results: newResults,
-      //   isLoaded: true
-      // });
-      this.props.addResults();
-      console.log('Search.test')
+      this.props.addResults();  //Update Home state variables with result lists
 
     } catch (e) {
       this.setState({
@@ -67,39 +39,6 @@ class Search extends React.Component {
 
   render() {
     return(null);
-    // const { error, isLoaded, results } = this.state;
-
-    // return (
-    //   <div>
-    //     {error ? (
-    //       <div>Error: {error.message} </div>
-    //     ) : (
-    //       <>
-    //         <ul>
-    //           {videos.map(tile => (
-    //             <li key={tile.title}>
-    //               {/* {" "} */}
-    //               {tile.title}
-    //               {tile.snippet}
-    //               <Preview />
-    //             </li>
-    //           ))}{" "}
-    //         </ul>
-
-    //         <ul>
-    //           {forums.map(tile => (
-    //             <li key={tile.title}>
-    //               {" "}
-    //               {tile.title}
-    //               {tile.snippet}
-    //               <Preview />
-    //             </li>
-    //           ))}{" "}
-    //         </ul>
-    //       </>
-    //     )}
-    //   </div>
-    // );
   }
 }
 
