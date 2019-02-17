@@ -29,19 +29,21 @@ const styles = {
 };
 // idea (?)
 // can change xs values to dictate weighted categories
-function Results(props) {
+class Results extends React.Component {
   
-  const { classes } = props;
-  return (
-  <div class = "resultBody"> 
-  <Grid
-    container
-    direction="column"
-    justify="flex-start"
-    alignItems="stretch"
-  >
-
-<Grid item xs>
+  render() {
+    const { classes } = this.props.classes;
+  
+    return (
+      <div class = "resultBody"> 
+      <Grid
+        container
+        direction="column"
+        justify="flex-start"
+        alignItems="stretch"
+      >
+      
+      <Grid item xs>
 
 <Card className={classes.card}>
   <CardActionArea>
@@ -50,7 +52,7 @@ function Results(props) {
         We found some
       </Typography>
       <Typography gutterBottom variant="h5" component="h3">
-        forums buzzing about <mark><b>React</b></mark>
+        forums buzzing about <mark><b>{ this.props.query }</b></mark>
       </Typography>
       </CardContent>
       </CardActionArea>
@@ -73,7 +75,7 @@ function Results(props) {
             and some
           </Typography>
           <Typography gutterBottom variant="h5" component="h3">
-            videos explaining <mark><b> React </b></mark>
+            videos explaining <mark><b>{ this.props.query }</b></mark>
           </Typography>
           </CardContent>
           </CardActionArea>
@@ -90,21 +92,23 @@ function Results(props) {
             and also some
           </Typography>
           <Typography gutterBottom variant="h5" component="h3">
-            documentation on <mark><b> React </b></mark>
+            documentation on <mark><b>{ this.props.query }</b></mark>
           </Typography>
           </CardContent>
         </CardActionArea>
           <HorizScroll />
         
-    </Card>
-    </Grid>
-    </Grid>
-    </div>
-  );
+      </Card>
+      </Grid>
+      </Grid>
+      </div>
+    );
+  }
 }
 
 Results.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Results);
+// export default withStyles(styles)(Results);
+export default Results;

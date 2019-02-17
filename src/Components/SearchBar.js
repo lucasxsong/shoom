@@ -42,7 +42,8 @@ class SearchBar extends React.Component {
             <SimpleCard />  
             </Grid>
     
-            <Grid item xs={6}>
+            <Grid item xs={6}>  
+              {/* Search-Bar Object */}
               <TextField
                 id="search-bar"
                 label="Enter a framework or technology you want to learn about."

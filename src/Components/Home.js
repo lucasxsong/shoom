@@ -10,7 +10,7 @@ import Search from "./Search.js";
 
 import SimpleCard from "./SimpleCard.js";
 import { FormControl } from "@material-ui/core";
-import Results from "./Results";
+import Results from "./Results.js";
 import SearchBar from "./SearchBar.js";
 
 const styles = theme => ({
@@ -73,9 +73,13 @@ class Home extends React.Component {
     }
     else {
       //Render the search API and results page
+      //FIXME: Implement Search functions HERE
       return (
-        <div id="test">
-          <h1>Hello World!</h1>
+        <div id="results-display">
+          <Results 
+            query={this.state.search}
+            classes={{ classes }}
+          />
         </div>
       );  
     }
