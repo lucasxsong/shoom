@@ -9,10 +9,10 @@ class Search extends React.Component {
     error: null,
     isLoaded: false,
     results: {
-      videos: [],
-      docs: [],
-      forums: [],
-      articles: []
+      // videos: [],
+      // docs: [],
+      // forums: [],
+      // articles: []
     }
   };
 
@@ -30,19 +30,18 @@ class Search extends React.Component {
 
       jsonData.items.forEach(item => {
         if (/youtube|khanacademy|vimeo/.test(item.link.toLowerCase())) {
-          videos.push(item);
+          this.props.searchVideos.push(item);
         } else if (
           /stackoverflow|medium|reddit|github/.test(item.link.toLowerCase())
         ) {
-          forums.push(item);
+          this.props.searchForums.push(item);
         } else if (item.link.toLowerCase().includes(".org")) {
-          docs.push(item);
+          this.props.searchDocs.push(item);
         } else {
-          articles.push(item);
+          this.props.searchArticles.push(item);
         }
       });
 
-      console.table(videos);
 
       const newResults = {
         videos,
@@ -51,10 +50,13 @@ class Search extends React.Component {
         forums
       };
 
-      this.setState({
-        results: newResults,
-        isLoaded: true
-      });
+      // this.setState({
+      //   results: newResults,
+      //   isLoaded: true
+      // });
+      this.props.addResults();
+      console.log('Search.test')
+
     } catch (e) {
       this.setState({
         error: e,
@@ -64,39 +66,40 @@ class Search extends React.Component {
   }
 
   render() {
-    const { error, isLoaded, results } = this.state;
+    return(null);
+    // const { error, isLoaded, results } = this.state;
 
-    return (
-      <div>
-        {error ? (
-          <div>Error: {error.message} </div>
-        ) : (
-          <>
-            <ul>
-              {results.videos.map(tile => (
-                <li key={tile.title}>
-                  {/* {" "} */}
-                  {tile.title}
-                  {tile.snippet}
-                  <Preview />
-                </li>
-              ))}{" "}
-            </ul>
+    // return (
+    //   <div>
+    //     {error ? (
+    //       <div>Error: {error.message} </div>
+    //     ) : (
+    //       <>
+    //         <ul>
+    //           {videos.map(tile => (
+    //             <li key={tile.title}>
+    //               {/* {" "} */}
+    //               {tile.title}
+    //               {tile.snippet}
+    //               <Preview />
+    //             </li>
+    //           ))}{" "}
+    //         </ul>
 
-            <ul>
-              {results.forums.map(tile => (
-                <li key={tile.title}>
-                  {" "}
-                  {tile.title}
-                  {tile.snippet}
-                  <Preview />
-                </li>
-              ))}{" "}
-            </ul>
-          </>
-        )}
-      </div>
-    );
+    //         <ul>
+    //           {forums.map(tile => (
+    //             <li key={tile.title}>
+    //               {" "}
+    //               {tile.title}
+    //               {tile.snippet}
+    //               <Preview />
+    //             </li>
+    //           ))}{" "}
+    //         </ul>
+    //       </>
+    //     )}
+    //   </div>
+    // );
   }
 }
 
