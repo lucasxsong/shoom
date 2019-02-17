@@ -5,13 +5,21 @@ import Route from "../App.js";
 import { Redirect } from "react-router";
 
 class Search extends React.Component {
-
   async componentDidMount() {
     try {
-      const rawData = await fetch(
-        "https://www.googleapis.com/customsearch/v1?q=react&cx=001608508911589604671:q8d2bskgh54&key=AIzaSyA1TOKf4HOIDbu456zWSMlKD1Q1_JWKCPo"
-      );
+      var searchTerms = this.props.query;
+      const googleString =
+        "https://www.googleapis.com/customsearch/v1?q=" +
+        this.props.query +
+        "&cx=001608508911589604671:q8d2bskgh54&key=AIzaSyA1TOKf4HOIDbu456zWSMlKD1Q1_JWKCPo";
+      // console.log(googleString);
+      const rawData = await fetch(googleString);
+      // const rawData = await fetch(
+      //   "https://www.googleapis.com/customsearch/v1?q=query&cx=001608508911589604671:q8d2bskgh54&key=AIzaSyA1TOKf4HOIDbu456zWSMlKD1Q1_JWKCPo"
+      // );
       const jsonData = await rawData.json();
+
+      // console.table(jsonData);
 
       jsonData.items.forEach(item => {
         if (/youtube|khanacademy|vimeo/.test(item.link.toLowerCase())) {
@@ -27,8 +35,8 @@ class Search extends React.Component {
         }
       });
 
-      this.props.addResults();  //Update Home state variables with result lists
-
+      console.table(this.props.searchArticles);
+      this.props.addResults(); //Update Home state variables with result lists
     } catch (e) {
       this.setState({
         error: e,
@@ -38,7 +46,7 @@ class Search extends React.Component {
   }
 
   render() {
-    return(null);
+    return null;
   }
 }
 

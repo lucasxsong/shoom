@@ -56,20 +56,20 @@ class Home extends React.Component {
     });
   };
 
-  addResults = event =>{
-    console.log('Event: ', event);
-    let searchEngine = {...this.state.searchEngine};
+  addResults = event => {
+    console.log("Event: ", event);
+    let searchEngine = { ...this.state.searchEngine };
     searchEngine.videos = event.videos;
     searchEngine.docs = event.docs;
     searchEngine.forums = event.forums;
     searchEngine.articles = event.articles;
-    this.setState({searchEngine});
-  }
+    this.setState({ searchEngine });
+  };
 
   render() {
     const { classes } = this.props;
 
-    if(this.state.hasSearched === false) {
+    if (this.state.hasSearched === false) {
       //Render the search-bar page
       return (
         <div id="search-bar-display">
@@ -78,15 +78,14 @@ class Home extends React.Component {
             onSubmit={this.handleSubmit}
             classes={{ classes }}
           />
-        </div>  
+        </div>
       );
-    }
-    else {
+    } else {
       //Render the search API and results page
       //FIXME: Implement Search functions HERE
       return (
         <div id="results-display">
-          <Search 
+          <Search
             searchVideos={this.state.searchEngine.videos}
             searchForums={this.state.searchEngine.forums}
             searchDocs={this.state.searchEngine.docs}
@@ -94,12 +93,13 @@ class Home extends React.Component {
             addResults={this.addResults}
             query={this.state.search}
           />
-          <Results 
+          <Results
             query={this.state.search}
+            searchResults={this.state.searchEngine}
             classes={{ classes }}
           />
         </div>
-      );  
+      );
     }
   }
 }
