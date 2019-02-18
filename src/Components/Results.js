@@ -226,7 +226,7 @@ class Results extends React.Component {
               <CardActionArea>
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="h7">
-                    and some
+                    {/* and some */}
                   </Typography>
                   <Typography gutterBottom variant="h5" component="h3">
                     videos explaining{" "}
@@ -244,7 +244,6 @@ class Results extends React.Component {
               <CardActionArea>
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="h7">
-                    and some
                   </Typography>
                   <Typography gutterBottom variant="h5" component="h3">
                     documentation on{" "}
@@ -263,7 +262,6 @@ class Results extends React.Component {
               <CardActionArea>
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="h7">
-                    and some
                   </Typography>
                   <Typography gutterBottom variant="h5" component="h3">
                     articles on{" "}
