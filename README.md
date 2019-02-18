@@ -1,5 +1,7 @@
 # shoom - hackUCI 2019
-> The smart search engine for learning new frameworks and technologies
+## What's shoom?
+Shoom, short for shumai, is a search tool for developers, students, and anyone interested in anything tech. Shoom takes in your query and spits out a results page organized by categories to make it easier for you to select the pages you need quicker and more reliably. 
+
 
 ## Getting Started
 
