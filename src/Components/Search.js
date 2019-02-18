@@ -11,7 +11,7 @@ class Search extends React.Component {
       const googleString =
         "https://www.googleapis.com/customsearch/v1?q=" +
         this.props.query +
-        "&cx=001411889088445407942:9ydhowmyqyq&key=AIzaSyDxW_xjrBiK7NIorOpioD5f6cvBjeGfw9Q";
+        "&cx=001131565671012719173:2azhhmpepnm&key=AIzaSyCXm4qxchAOf4oj7GoGjmFfq1-cTEuq4dU";
         // lucas: AIzaSyBM6ZkrzQFU0Xrcqp85IxGqNNXbjqAyKM4
       // console.log(googleString);
       const rawData = await fetch(googleString);
