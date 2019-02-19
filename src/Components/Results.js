@@ -191,6 +191,7 @@ class Results extends React.Component {
 
       //console.table(this.searchResults.articles);
 
+      
     return (
       <div class="resultBody">
         <Grid
@@ -243,7 +244,6 @@ class Results extends React.Component {
               <CardActionArea>
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="h7">
-                    {/* and also some */}
                   </Typography>
                   <Typography gutterBottom variant="h5" component="h3">
                     documentation on{" "}
@@ -262,7 +262,6 @@ class Results extends React.Component {
               <CardActionArea>
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="h7">
-                    {/* and also some */}
                   </Typography>
                   <Typography gutterBottom variant="h5" component="h3">
                     articles on{" "}
