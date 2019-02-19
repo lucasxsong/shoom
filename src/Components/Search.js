@@ -11,12 +11,7 @@ class Search extends React.Component {
       const googleString =
         "https://www.googleapis.com/customsearch/v1?q=" +
         this.props.query +
-<<<<<<< HEAD
         ""; //FIXME Add api
-=======
-        "&cx=001131565671012719173:2azhhmpepnm&key=AIzaSyCXm4qxchAOf4oj7GoGjmFfq1-cTEuq4dU";
-        // lucas: AIzaSyBM6ZkrzQFU0Xrcqp85IxGqNNXbjqAyKM4
->>>>>>> 96b103fd69fdb51c6b9e7e74c2ac2599f8c42594
       // console.log(googleString);
       const rawData = await fetch(googleString);
       // const rawData = await fetch(
